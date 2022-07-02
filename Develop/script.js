@@ -30,37 +30,48 @@ function generatePassword() {
 
   findLength();
 
-  var lower = confirm("Would you like LOWERCASE letters in your password?");
-  var upper = confirm("Would you like UPPERCASE letters in your password?");
-  var numbers = confirm("Would you like NUMBERS in your password?");
-  var special = confirm("Would you like SPECIAL characters in your password?");
+  function createPassword () {
+    var lower = confirm("Would you like LOWERCASE letters in your password?");
+    var upper = confirm("Would you like UPPERCASE letters in your password?");
+    var numbers = confirm("Would you like NUMBERS in your password?");
+    var special = confirm("Would you like SPECIAL characters in your password?");
 
-  if (lower) {
-    lowerCase = letters.split(" ");
-    for (i = 0; i < lowerCase.length; i++){
-    newPassword.push(lowerCase[i]);
+    if (lower == true) {
+      lowerCase = letters.split(" ");
+      for (i = 0; i < lowerCase.length; i++){
+      newPassword.push(lowerCase[i]);
+      }
     }
+
+    if (upper == true) {
+      toUpperCase = letters.toUpperCase();
+      upperCase = toUpperCase.split(" ");
+      for (i = 0; i < upperCase.length; i++){
+      newPassword.push(upperCase[i]);
+      }
+    }
+
+    if (numbers == true) {
+      for (i = 0; i < number.length; i++){
+      newPassword.push(number[i]);
+      }
+    }
+
+    if (special == true) {
+      for (i = 0; i < specialChar.length; i++){
+        newPassword.push(specialChar[i]);
+      }
+    }
+
+    if (!lower && !upper && !numbers && !special) {
+      alert ("Try again. Please make a selection from the criteria to create your password");
+      findLength();
+      createPassword();
+    }
+    return;
   }
 
-  if (upper) {
-    toUpperCase = letters.toUpperCase();
-    upperCase = toUpperCase.split(" ");
-    for (i = 0; i < upperCase.length; i++){
-    newPassword.push(upperCase[i]);
-    }
-  }
-
-  if (numbers) {
-    for (i = 0; i < number.length; i++){
-    newPassword.push(number[i]);
-    }
-  }
-
-  if (special) {
-    for (i = 0; i < specialChar.length; i++){
-      newPassword.push(specialChar[i]);
-    }
-  }
+  createPassword();
 
   function shuffleArray (array) {
     for (var i = array.length - 1; i > 0; i --) {
