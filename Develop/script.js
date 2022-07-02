@@ -2,6 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 
 var letters = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+var number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var specialChar = ["!", "@", "#", "$", "%", "&"];
 var lowerCase = [];
 var upperCase = []
 var toUpperCase = [];
@@ -35,17 +37,26 @@ function generatePassword() {
 
   if (lower) {
     lowerCase = letters.split(" ");
-    for (i = 0; i < lowerCase.length; i++)
+    for (i = 0; i < lowerCase.length; i++){
     newPassword.push(lowerCase[i]);
+    }
   }
 
   if (upper) {
     toUpperCase = letters.toUpperCase();
     upperCase = toUpperCase.split(" ");
-    for (i = 0; i < upperCase.length; i++)
+    for (i = 0; i < upperCase.length; i++){
     newPassword.push(upperCase[i]);
+    }
   }
 
+  if (numbers) {
+    for (i = 0; i < number.length; i++){
+    newPassword.push(number[i]);
+    }
+  }
+
+  console.log(number);
   console.log(length);
   console.log(newPassword);
   return;
