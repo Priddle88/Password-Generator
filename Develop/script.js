@@ -56,10 +56,35 @@ function generatePassword() {
     }
   }
 
+  if (special) {
+    for (i = 0; i < specialChar.length; i++){
+      newPassword.push(specialChar[i]);
+    }
+  }
+
+  function shuffleArray (array) {
+    for (var i = array.length - 1; i > 0; i --) {
+
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i]
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+  var newPass = shuffleArray(newPassword);
+  var slicedPass = newPass.slice(0, length);
+  var makeString = slicedPass.toString();
+  var finalPass = makeString.replace(/,/g, '');
+
+
+  console.log(newPass);
   console.log(number);
   console.log(length);
   console.log(newPassword);
-  return;
+  console.log(finalPass);
+  return finalPass;
 }
 
 // Add event listener to generate button
