@@ -1,7 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+var letters = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+var lowerCase = [];
+var upperCase = []
+var toUpperCase = [];
 var newPassword = [];
 var length = 0;
 
@@ -31,8 +34,16 @@ function generatePassword() {
   var special = confirm("Would you like SPECIAL characters in your password?");
 
   if (lower) {
+    lowerCase = letters.split(" ");
     for (i = 0; i < lowerCase.length; i++)
     newPassword.push(lowerCase[i]);
+  }
+
+  if (upper) {
+    toUpperCase = letters.toUpperCase();
+    upperCase = toUpperCase.split(" ");
+    for (i = 0; i < upperCase.length; i++)
+    newPassword.push(upperCase[i]);
   }
 
   console.log(length);
