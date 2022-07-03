@@ -13,6 +13,7 @@ var length = 0;
 
 // Write password to the #password input
 function writePassword() {
+  reset();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -21,11 +22,10 @@ function writePassword() {
 }
 
 function generatePassword() {
-
   newPassword = [];
 
   function findLength() {
-    length = prompt("How long would you like your password? (8 - 128 characters");
+    length = prompt("How long would you like your password? (8 - 128 characters)");
     if (length < 8 || length > 128) {
       confirm("Try Again. You need to choose a number between 8 - 128");
       findLength();
@@ -74,6 +74,7 @@ function generatePassword() {
     if (!lower && !upper && !numbers && !special) {
       alert ("Try again. Please make a selection from the criteria to create your password");
       findLength();
+      createPassword();
     }
     console.log(newPassword);
     return newPassword;
@@ -108,11 +109,16 @@ function generatePassword() {
 
 
   // console.log(newPass);
-  // console.log(number);
+  console.log(number);
   console.log(length);
   console.log(newPassword);
   console.log(finalPass);
   return finalFinal;
+}
+
+function reset() {
+  console.clear();
+  fillIt = [];
 }
 
 // Add event listener to generate button
