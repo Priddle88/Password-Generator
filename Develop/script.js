@@ -8,6 +8,7 @@ var lowerCase = [];
 var upperCase = []
 var toUpperCase = [];
 var newPassword = [];
+var fillIt = [];
 var length = 0;
 
 // Write password to the #password input
@@ -26,6 +27,7 @@ function generatePassword() {
       confirm("Try Again. You need to choose a number between 8 - 128");
       findLength();
     }
+    return length;
   }
 
   findLength();
@@ -85,18 +87,22 @@ function generatePassword() {
     return array;
   }
 
-  var newPass = shuffleArray(newPassword);
+  for (i = 0; i < length; i++){
+    fillIt[i] = newPassword[i % newPassword.length];
+  }
+  
+  console.log(fillIt);
+  var newPass = shuffleArray(fillIt);
   var slicedPass = newPass.slice(0, length);
-  slicedPass.fill(newPass);
   var makeString = slicedPass.toString();
   var finalPass = makeString.replace(/,/g, '');
 
 
-  console.log(newPass);
-  console.log(number);
-  console.log(length);
+  // console.log(newPass);
+  // console.log(number);
+   console.log(length);
   console.log(newPassword);
-  console.log(finalPass);
+  // console.log(finalPass);
   return finalPass;
 }
 
