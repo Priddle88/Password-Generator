@@ -21,6 +21,9 @@ function writePassword() {
 }
 
 function generatePassword() {
+
+  newPassword = [];
+
   function findLength() {
     length = prompt("How long would you like your password? (8 - 128 characters");
     if (length < 8 || length > 128) {
@@ -31,6 +34,8 @@ function generatePassword() {
   }
 
   findLength();
+
+  console.log(newPassword);
 
   function createPassword () {
     newPassword = [];
@@ -69,8 +74,8 @@ function generatePassword() {
     if (!lower && !upper && !numbers && !special) {
       alert ("Try again. Please make a selection from the criteria to create your password");
       findLength();
-      createPassword();
     }
+    console.log(newPassword);
     return newPassword;
   }
 
@@ -87,23 +92,27 @@ function generatePassword() {
     return array;
   }
 
-  for (i = 0; i < length; i++){
-    fillIt[i] = newPassword[i % newPassword.length];
-  }
-  
-  console.log(fillIt);
-  var newPass = shuffleArray(fillIt);
+  var newPass = shuffleArray(newPassword);
   var slicedPass = newPass.slice(0, length);
   var makeString = slicedPass.toString();
   var finalPass = makeString.replace(/,/g, '');
 
+  for (i = 0; i < length; i++){
+    fillIt[i] = finalPass[i % finalPass.length];
+  }
+  
+  console.log(fillIt);
+
+  var secondString = fillIt.toString();
+  var finalFinal = secondString.replace(/,/g, '');
+
 
   // console.log(newPass);
   // console.log(number);
-   console.log(length);
+  console.log(length);
   console.log(newPassword);
-  // console.log(finalPass);
-  return finalPass;
+  console.log(finalPass);
+  return finalFinal;
 }
 
 // Add event listener to generate button
