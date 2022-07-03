@@ -31,6 +31,7 @@ function generatePassword() {
   findLength();
 
   function createPassword () {
+    newPassword = [];
     var lower = confirm("Would you like LOWERCASE letters in your password?");
     var upper = confirm("Would you like UPPERCASE letters in your password?");
     var numbers = confirm("Would you like NUMBERS in your password?");
@@ -68,7 +69,7 @@ function generatePassword() {
       findLength();
       createPassword();
     }
-    return;
+    return newPassword;
   }
 
   createPassword();
