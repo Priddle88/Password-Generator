@@ -87,6 +87,7 @@ function generatePassword() {
 
   var newPass = shuffleArray(newPassword);
   var slicedPass = newPass.slice(0, length);
+  slicedPass.fill(newPass);
   var makeString = slicedPass.toString();
   var finalPass = makeString.replace(/,/g, '');
 
