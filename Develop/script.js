@@ -101,18 +101,25 @@ function generatePassword() {
   for (i = 0; i < length; i++){
     fillIt[i] = finalPass[i % finalPass.length];
   }
+
+  if (fillIt.length < 12 && newPassword.includes('$')){
+    fillIt[1] = "$";
+  }
+
+  if (fillIt.length < 12 && newPassword.includes('8')){
+    fillIt[0] = "8";
+  }
   
   console.log(fillIt);
-
-  var secondString = fillIt.toString();
+  var shuffleAgain = shuffleArray(fillIt);
+  var secondString = shuffleAgain.toString();
   var finalFinal = secondString.replace(/,/g, '');
-
-
-  // console.log(newPass);
-  console.log(number);
+  
+  console.log(newPass);
   console.log(length);
   console.log(newPassword);
   console.log(finalPass);
+  console.log(fillIt + " This is FillIt");
   return finalFinal;
 }
 
