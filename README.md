@@ -14,4 +14,6 @@ I thought I would be done at this point but I started to notice a couple of erro
 
 I should be good to go, right? Nope. I then realized that if the length of the password was too small. There would be times the numbers and special characters would not show up even though they were selected by the user. I wrote two if statements to check if the length is less than a certain amount and if the options to have those characters added were selected. If both conditions are true, the code will add at least one character of either a number or special to the password. I turned that array into a string and removed the commas. Finally, I returned the finalFinal variable so that it would appear on the webpage.
 
+[Link to site](https://priddle88.github.io/Password-Generator/Develop/index.html)
+
 ![Picture of page](./Assets/Screen%20Shot%202022-07-03%20at%207.37.46%20PM.png)
