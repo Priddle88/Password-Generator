@@ -117,13 +117,24 @@ function generatePassword() {
   }
 
   //Makes sure the shorter passwords have special characters
-  if (fillIt.length < 12 && newPassword.includes('$')){
-    fillIt[1] = "$";
+  if (fillIt.length < 20 && newPassword.includes('$')){
+    fillIt[0] = specialChar[Math.floor(Math.random() * 6)];
   }
 
   //Makes sure the shorter passwords have numbers
-  if (fillIt.length < 12 && newPassword.includes('8')){
-    fillIt[0] = "8";
+  if (fillIt.length < 20 && newPassword.includes('8')){
+    fillIt[1] = number[Math.floor(Math.random() * 10)];
+  }
+
+  //Makes sure the shorter passwords have lowercase
+  if (fillIt.length < 20 && newPassword.includes('a')){
+    var lowerFill = letters.split(" ");
+    fillIt[2] = lowerFill[Math.floor(Math.random() * 26)];
+  }
+
+  //Makes sure the shorter passwords have uppercase
+  if (fillIt.length < 20 && newPassword.includes('A')){
+    fillIt[3]= "G";
   }
   
   //The array needed to be shuffled and converted to a string again
