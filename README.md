@@ -16,4 +16,4 @@ I should be good to go, right? Nope. I then realized that if the length of the p
 
 [Link to site](https://priddle88.github.io/Password-Generator/Develop/index.html)
 
-![Picture of page](./Assets/Screen%20Shot%202022-07-03%20at%207.37.46%20PM.png)
+![Picture of page](./Images/Screen%20Shot%202022-07-03%20at%207.37.46%20PM.png)
